@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Browser</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div id="navbar">
+        <button id="back">Back</button>
+        <button id="forward">Forward</button>
+        <button id="reload">Reload</button>
+        <input type="text" id="url" placeholder="Enter URL">
+        <button id="go">Go</button>
+        <select id="tab-selector"></select>
+        <button id="new-tab">New Tab</button>
+    </div>
+    <div id="browser-container"></div>
+    <script src="browser.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
+</html>
